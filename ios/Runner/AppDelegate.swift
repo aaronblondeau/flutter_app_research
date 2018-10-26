@@ -44,7 +44,7 @@ import Flutter
             // print("~~ NATIVE GOT MESSAGE \(msg)")
             messageChannel.sendMessage("ECHO : \(msg)")
         }
-        // reply("Ok - reply from native")
+        reply("")
     }
     
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)

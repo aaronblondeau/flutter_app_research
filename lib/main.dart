@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String _message = 'NONE';
 
   // https://flutter.io/platform-channels/
-  static const platform = const MethodChannel('flutter_app_research.salidasoftware.com/method');
+    static const platform = const MethodChannel('flutter_app_research.salidasoftware.com/method');
 
   static const BasicMessageChannel<String> platformMsg = BasicMessageChannel<String>('flutter_app_research.salidasoftware.com/message', StringCodec());
 
