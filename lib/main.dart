@@ -47,9 +47,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String _mapInfo = 'TODO';
+  String _message = 'NONE';
 
   // https://flutter.io/platform-channels/
-  static const platform = const MethodChannel('flutter_app_research.salidasoftware.com/map');
+  static const platform = const MethodChannel('flutter_app_research.salidasoftware.com/method');
+
+  static const BasicMessageChannel<String> platformMsg = BasicMessageChannel<String>('flutter_app_research.salidasoftware.com/message', StringCodec());
 
   void _incrementCounter() {
     setState(() {
@@ -62,6 +65,23 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  @override
+  void initState() {
+    super.initState();
+    platformMsg.setMessageHandler(_handleMessage);
+  }
+
+  Future<String> _handleMessage(String message) async {
+    setState(() {
+      _message = message;
+    });
+    // return '';
+  }
+
+  void _sendMessage() {
+    platformMsg.send('Here Ya Go : ' + _counter.toString());
+  }
+
   Future<Null> _openMap() async {
     String info = "Working...";
     setState(() {
@@ -69,7 +89,9 @@ class _MyHomePageState extends State<MyHomePage> {
     });
 
     try {
-      final int result = await platform.invokeMethod('openMap');
+      final int result = await platform.invokeMethod('openNative', <String, dynamic>{
+        'counter': _counter
+      });
       info = 'Open map result : $result';
     } on PlatformException catch (e) {
       info = "Failed to open map: '${e.message}'.";
@@ -122,10 +144,14 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            new RaisedButton(onPressed: _openMap, child: new Text('Go!')),
             new Text(
               _mapInfo,
             ),
-            new RaisedButton(onPressed: _openMap, child: new Text('Go!'))
+            new RaisedButton(onPressed: _sendMessage, child: new Text('Send!')),
+            new Text(
+              _message,
+            ),
           ],
         ),
       ),

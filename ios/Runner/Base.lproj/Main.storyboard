@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Flutter View Controller-->
@@ -14,13 +18,65 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="79" y="27"/>
+        </scene>
+        <!--Native View Controller-->
+        <scene sceneID="yXC-az-ZEi">
+            <objects>
+                <viewController storyboardIdentifier="nativeViewController" id="6tZ-yV-Lmh" customClass="NativeViewController" customModule="Runner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lCk-mk-Tyi"/>
+                        <viewControllerLayoutGuide type="bottom" id="abc-tU-bjP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wns-At-JRM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Native View Controller!" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dLE-Hk-71F">
+                                <rect key="frame" x="16" y="28" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yu9-gt-Y27">
+                                <rect key="frame" x="24" y="66" width="327" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="exitAction:" destination="6tZ-yV-Lmh" eventType="touchUpInside" id="LP5-7A-i3b"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="EiE-1u-AfX">
+                                <rect key="frame" x="22" y="104" width="331" height="31"/>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dLE-Hk-71F" firstAttribute="leading" secondItem="wns-At-JRM" secondAttribute="leadingMargin" id="0va-sl-FOf"/>
+                            <constraint firstItem="EiE-1u-AfX" firstAttribute="top" secondItem="Yu9-gt-Y27" secondAttribute="bottom" constant="8" id="81m-43-aQd"/>
+                            <constraint firstItem="dLE-Hk-71F" firstAttribute="top" secondItem="lCk-mk-Tyi" secondAttribute="bottom" constant="8" id="Gbb-bD-ayj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EiE-1u-AfX" secondAttribute="trailing" constant="8" id="Odu-Z9-bTJ"/>
+                            <constraint firstItem="Yu9-gt-Y27" firstAttribute="top" secondItem="dLE-Hk-71F" secondAttribute="bottom" constant="8" id="Pc1-Fh-hGL"/>
+                            <constraint firstItem="Yu9-gt-Y27" firstAttribute="leading" secondItem="wns-At-JRM" secondAttribute="leadingMargin" constant="8" id="YRv-hg-d15"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yu9-gt-Y27" secondAttribute="trailing" constant="8" id="a3Q-xh-Q4T"/>
+                            <constraint firstItem="EiE-1u-AfX" firstAttribute="leading" secondItem="wns-At-JRM" secondAttribute="leadingMargin" constant="8" id="iZ9-t7-zgz"/>
+                            <constraint firstItem="dLE-Hk-71F" firstAttribute="trailing" secondItem="wns-At-JRM" secondAttribute="trailingMargin" id="mBG-cj-aap"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XMh-8v-tED"/>
+                    <connections>
+                        <outlet property="valueSlider" destination="EiE-1u-AfX" id="Bjf-89-7BO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MlA-Vz-77u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="969" y="27"/>
         </scene>
     </scenes>
 </document>
